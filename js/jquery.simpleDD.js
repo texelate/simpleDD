@@ -5,7 +5,7 @@
  * A simple JQuery drop down plugin
  *
  * @author 			Tim Bennett
- * @version 		1.0
+ * @version 		1.1
  *
  * Download the latest version at www.texelate.co.uk/labs/simple-dd/
  *
@@ -50,7 +50,8 @@
 			keepOtherMenusOpen: 		false,
 			closeMenusOnOutsideClick: 	true,
 			closeMenusOnLoad: 			false, // You're probably better off using CSS to hide the menus in case JavaScript is disabled
-			noScriptLink:				null
+			noScriptLink:				null,
+			event:						'mouseenter'
 		
 		};
 		
@@ -103,7 +104,7 @@
 			/**
 			 * Mouse enter
 			 */
-			$this.on('mouseenter', function() {
+			$this.on(options.event, function() {
 			
 				// Close the other drop downs
 				if(options.keepOtherMenusOpen === false) {
