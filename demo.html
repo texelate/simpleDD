@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>simpleSlidingPanels Minimum Setup</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="js/jquery.simpleDD.js"></script>
+		<style type="text/css">
+		
+			/**
+			 * Some basic styles
+			 */
+		
+			body {
+				
+				padding: 20px;
+				margin: 0;
+				line-height: 1.5;
+				width: 800px;
+				
+			}
+			
+			div,
+			li,
+			p {
+				
+				font-family: 'Helvetica Neue', Arial, sans-serif;
+				color: #666666;
+				text-shadow: 0px 1px 1px #FFFFFF;
+				font-size: 14px;
+				font-weight: 300;
+				text-shadow: 0 1px 1px white;
+				
+				
+			}
+			
+			div.simpledd-child { display: none; }
+			
+			ul {
+				
+				margin: 0;
+				padding: 0;
+				
+			}
+			
+			li {
+				
+				border: 1px solid #CCCCCC;
+				border-right: none;
+				float: left;
+				list-style: none;
+				position: relative;
+				
+			}
+			
+			ul > li:last-child { border-right: 1px solid #CCCCCC; }
+			
+			li > a,
+			div.simpledd-child > a { 
+			
+				padding: 10px;
+				display: block;
+				text-decoration: none;
+				color: #205F99;
+				
+			}
+			
+			li > a:hover,
+			.simpledd-over { background-color: #F7F7F7; }
+			
+			div.simpledd-child {
+				
+				width: 150px;
+				position: absolute;
+				left: -1px;
+				top: 41px;
+				background-color: #F7F7F7;
+				background-color: rgba(255, 255, 255, 0.9);
+				border: 1px solid #DDDDDD;
+				padding: 10px;
+				
+			}
+			
+			br { clear: both; }
+		
+		</style>
+		<script>
+		
+			$(function() {
+
+				$('li.simpledd').simpleDD({
+				
+					noScriptLink: 'a.no-script'
+				
+				});
+				
+			});
+		
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><a href="demo.html">Menu 1</a></li>
+			<li class="simpledd">
+				<a class="no-script" href="demo.html">Menu 2</a>
+				<div class="simpledd-child">
+					<a href="#">Sub link 1</a>
+					<a href="#">Sub link 2</a>
+					<a href="#">Sub link 3</a>
+				</div>
+			</li>
+			<li><a href="demo.html">Menu 3</a></li>
+			<li class="simpledd">
+				<a class="no-script" href="demo.html">Menu 4</a>
+				<div class="simpledd-child">
+					<a href="#">Sub link 1</a>
+					<a href="#">Sub link 2</a>
+					<a href="#">Sub link 3</a>
+				</div>
+			</li>
+			<li><a href="demo.html">Menu 5</a></li>
+		</ul>
+		<br />
+		<p>Eu purto doming intellegebat usu. Veniam verear consulatu cu vel. Ne dicat tritani nostrum qui, in meis malorum vix. His
+		eu volumus explicari. Ei esse graeco sed, ridens everti ea duo. Ut dicant reformidans est.</p>
+		<p>Adolescens concludaturque usu ei, ius an semper viderer, mel in placerat signiferumque. Vis ne impedit admodum,
+		altera voluptaria pri in. Cu aeque consul mei. Ne dicit errem postulant vix, eu commune pericula delicatissimi vel.</p>
+		<p>Singulis patrioque instructior ne vis, eirmod bonorum rationibus his te. Cum ut graeco eirmod animal, et vis aeterno
+		mentitum. His ut malis viris eloquentiam. Bonorum gubergren expetendis eam ei. Nam id oratio cotidieque, eam aeque graeco
+		id, his sumo wisi dissentiunt in. Pro ei rebum ridens reformidans, libris scaevola elaboraret quo ex.</p>
+		<p>Eu purto doming intellegebat usu. Veniam verear consulatu cu vel. Ne dicat tritani nostrum qui, in meis malorum vix. His
+		eu volumus explicari. Ei esse graeco sed, ridens everti ea duo. Ut dicant reformidans est.</p>
+		<p>Adolescens concludaturque usu ei, ius an semper viderer, mel in placerat signiferumque. Vis ne impedit admodum,
+		altera voluptaria pri in. Cu aeque consul mei. Ne dicit errem postulant vix, eu commune pericula delicatissimi vel.</p>
+		<p>Singulis patrioque instructior ne vis, eirmod bonorum rationibus his te. Cum ut graeco eirmod animal, et vis aeterno
+		mentitum. His ut malis viris eloquentiam. Bonorum gubergren expetendis eam ei. Nam id oratio cotidieque, eam aeque graeco
+		id, his sumo wisi dissentiunt in. Pro ei rebum ridens reformidans, libris scaevola elaboraret quo ex.</p>
+		<p>Eu purto doming intellegebat usu. Veniam verear consulatu cu vel. Ne dicat tritani nostrum qui, in meis malorum vix. His
+		eu volumus explicari. Ei esse graeco sed, ridens everti ea duo. Ut dicant reformidans est.</p>
+		<p>Adolescens concludaturque usu ei, ius an semper viderer, mel in placerat signiferumque. Vis ne impedit admodum,
+		altera voluptaria pri in. Cu aeque consul mei. Ne dicit errem postulant vix, eu commune pericula delicatissimi vel.</p>
+		<p>Singulis patrioque instructior ne vis, eirmod bonorum rationibus his te. Cum ut graeco eirmod animal, et vis aeterno
+		mentitum. His ut malis viris eloquentiam. Bonorum gubergren expetendis eam ei. Nam id oratio cotidieque, eam aeque graeco
+		id, his sumo wisi dissentiunt in. Pro ei rebum ridens reformidans, libris scaevola elaboraret quo ex.</p>
+		<p>Eu purto doming intellegebat usu. Veniam verear consulatu cu vel. Ne dicat tritani nostrum qui, in meis malorum vix. His
+		eu volumus explicari. Ei esse graeco sed, ridens everti ea duo. Ut dicant reformidans est.</p>
+		<p>Adolescens concludaturque usu ei, ius an semper viderer, mel in placerat signiferumque. Vis ne impedit admodum,
+		altera voluptaria pri in. Cu aeque consul mei. Ne dicit errem postulant vix, eu commune pericula delicatissimi vel.</p>
+		<p>Singulis patrioque instructior ne vis, eirmod bonorum rationibus his te. Cum ut graeco eirmod animal, et vis aeterno
+		mentitum. His ut malis viris eloquentiam. Bonorum gubergren expetendis eam ei. Nam id oratio cotidieque, eam aeque graeco
+		id, his sumo wisi dissentiunt in. Pro ei rebum ridens reformidans, libris scaevola elaboraret quo ex.</p>
+		<p>Eu purto doming intellegebat usu. Veniam verear consulatu cu vel. Ne dicat tritani nostrum qui, in meis malorum vix. His
+		eu volumus explicari. Ei esse graeco sed, ridens everti ea duo. Ut dicant reformidans est.</p>
+		<p>Adolescens concludaturque usu ei, ius an semper viderer, mel in placerat signiferumque. Vis ne impedit admodum,
+		altera voluptaria pri in. Cu aeque consul mei. Ne dicit errem postulant vix, eu commune pericula delicatissimi vel.</p>
+		<p>Singulis patrioque instructior ne vis, eirmod bonorum rationibus his te. Cum ut graeco eirmod animal, et vis aeterno
+		mentitum. His ut malis viris eloquentiam. Bonorum gubergren expetendis eam ei. Nam id oratio cotidieque, eam aeque graeco
+		id, his sumo wisi dissentiunt in. Pro ei rebum ridens reformidans, libris scaevola elaboraret quo ex.</p>
+	</body>
+</html>
