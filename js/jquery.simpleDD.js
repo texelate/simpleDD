@@ -4,8 +4,8 @@
  *
  * A simple jQuery drop down plugin
  *
- * @author 			Tim Bennett
- * @version 		1.1.1
+ * @author			Tim Bennett
+ * @version			1.1.1
  *
  * Download the latest version at www.texelate.co.uk/lab/simple-dd/
  *
@@ -44,12 +44,12 @@
 		 */
 		var defaults = {  
 		
-			timeout: 					500,
-			dropdownElement: 			'.simpledd-child',
-			hoverClass: 				'simpledd-over',
-			keepOtherMenusOpen: 		false,
-			closeMenusOnOutsideClick: 	true,
-			closeMenusOnLoad: 			false, // You're probably better off using CSS to hide the menus in case JavaScript is disabled
+			timeout:					500,
+			dropdownElement:			'.simpledd-child',
+			hoverClass:					'simpledd-over',
+			keepOtherMenusOpen:			false,
+			closeMenusOnOutsideClick:	true,
+			closeMenusOnLoad:			false, // You're probably better off using CSS to hide the menus in case JavaScript is disabled
 			noScriptLink:				null,
 			event:						'mouseenter'
 		
@@ -59,7 +59,7 @@
 		/**
 		 * Options
 		 */
-		var options 	= $.extend(defaults, options);
+		var options		= $.extend(defaults, options);
 		var objArray	= this;
 
 
@@ -71,8 +71,8 @@
 			/**
 			 * Local plugin variables
 			 */
-			var $this 			= $(this); 
-			var timeoutvar 		= 'simpleddtimeoutcode';
+			var $this			= $(this); 
+			var timeoutvar		= 'simpleddtimeoutcode';
 			
 			
 			/**
