@@ -88,9 +88,17 @@
 		
 			$(function() {
 
-				$('li.simpledd').simpleDD({
+				var $simpleDD = $('li.simpledd').simpleDD({
 				
 					noScriptLink: 'a.no-script'
+				
+				});
+				
+				$('a#close-all-links').on('click', function(e) {
+				
+					e.preventDefault();
+				
+					$simpleDD.closeAllDropDowns();
 				
 				});
 				
@@ -116,6 +124,7 @@
 					<a href="#">Sub link 1</a>
 					<a href="#">Sub link 2</a>
 					<a href="#">Sub link 3</a>
+					<a href="#" id="close-all-links">Close all drop downs</a>
 				</div>
 			</li>
 			<li><a href="demo.html">Menu 5</a></li>
