@@ -94,6 +94,14 @@
 				
 				});
 				
+				$('a#close').on('click', function(e) {
+				
+					e.preventDefault();
+				
+					$simpleDD.close();
+				
+				});
+				
 				$('a#close-all-links').on('click', function(e) {
 				
 					e.preventDefault();
@@ -115,6 +123,7 @@
 					<a href="#">Sub link 1</a>
 					<a href="#">Sub link 2</a>
 					<a href="#">Sub link 3</a>
+					<a href="#" id="close">x Close</a>
 				</div>
 			</li>
 			<li><a href="demo.html">Menu 3</a></li>

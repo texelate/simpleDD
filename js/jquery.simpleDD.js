@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.2.0
+ * @version			1.3.0
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
  *
@@ -138,7 +138,7 @@
 				// Set the timeout
 				var timeoutcode = window.setTimeout(function() {
 					
-					closeDropDown($this);
+					close($this);
 				
 				}, options.timeout);
 				
@@ -171,6 +171,16 @@
 			
 			
 			/**
+			 * Public function to close current drop down
+			 */
+			$.fn.close = function() {
+			
+				close($(this));
+			
+			};
+			
+			
+			/**
 			 * Public function to close all drop downs
 			 */
 			$.fn.closeAllDropDowns = function() {
@@ -185,7 +195,7 @@
 			 *
 			 * @param   jQuery   $this   The drop down to close
 			 */
-			function closeDropDown($this) {
+			function close($this) {
 				
 				// Hide this drop down $thisect
 				$this.removeClass(options.hoverClass)
@@ -203,7 +213,7 @@
 			
 				objArray.each(function() {
 				
-					closeDropDown($(this));
+					close($(this));
 				
 				});
 			
