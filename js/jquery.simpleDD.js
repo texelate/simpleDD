@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.1.0
+ * @version			1.2.0
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
  *
@@ -171,7 +171,18 @@
 			
 			
 			/**
+			 * Public function to close all drop downs
+			 */
+			$.fn.closeAllDropDowns = function() {
+			
+				closeAllDropDowns();
+			
+			};
+			
+			
+			/**
 			 * Close the drop down 
+			 *
 			 * @param   jQuery   $this   The drop down to close
 			 */
 			function closeDropDown($this) {
