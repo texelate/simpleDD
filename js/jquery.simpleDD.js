@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.3.0
+ * @version			1.4.0
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
  *
