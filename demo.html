@@ -91,7 +91,9 @@
 				var $simpleDD = $('li.simpledd').simpleDD({
 				
 					noScriptLink: 'a.no-script',
-					onInit: function() { console.log('simpleDD init'); }
+					onInit: function() { console.log('simpleDD init'); },
+					onOpen: function() { console.log('simpleDD opened'); $(this).hide().fadeIn(); },
+					onInit: function() { console.log('simpleDD closed'); }
 				
 				});
 

@@ -139,6 +139,9 @@
 				     .find(options.dropdownElement)
 				     .eq(0)
 				     .css('display', 'block');
+				     
+				// Open callback
+				options.onOpen.call(this);
 			
 			})
 			
@@ -246,6 +249,9 @@
 				     .find(options.dropdownElement)
 				     .eq(0)
 				     .css('display', 'none');
+				     
+				// Close callback
+				options.onClose.call(this);
 			
 			}
 			
