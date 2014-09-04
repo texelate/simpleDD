@@ -51,7 +51,10 @@
 			closeMenusOnOutsideClick:	true,
 			closeMenusOnLoad:			false, // You're probably better off using CSS to hide the menus in case JavaScript is disabled
 			noScriptLink:				null,
-			event:						'mouseenter'
+			event:						'mouseenter',
+			onInit:						function() {},
+			onOpen:						function() {},
+			onClose:					function() {}
 		
 		};
 		
@@ -59,8 +62,9 @@
 		/**
 		 * Options
 		 */
-		var options		= $.extend(defaults, options);
-		var objArray	= this;
+		var options			= $.extend(defaults, options);
+		var objArray		= this;
+		var noScriptData	= 'simpledd-no-script-href';
 
 
 		/**
@@ -80,13 +84,20 @@
 			 */
 			if(options.noScriptLink !== null) {
 			
-				$this.find(options.noScriptLink)
-				     .attr('href', '#')
-				     .on('click', function(e) {
-				                       
-					e.preventDefault();                
-				                       
+				$this.find(options.noScriptLink).each(function() {
+				
+					var $this = $(this);
+					
+					$this.data(noScriptData, $this.attr('href'))
+						 .attr('href', '#')
+						 .on('click', function(e) {
+					                   
+						e.preventDefault(); 
+						
+					});    
+				
 				});
+
 			
 			}
 			
@@ -186,6 +197,37 @@
 			$.fn.closeAllDropDowns = function() {
 			
 				closeAllDropDowns();
+			
+			};
+			
+			
+			/**
+			 * Public function to destroy
+			 */
+			$.fn.destroy = function() {
+			
+				// Cache this
+				var $this = $(this);
+			
+				// Close all drop downs
+				closeAllDropDowns();
+				
+				// Re-add no script link
+				if(options.noScriptLink !== null) {
+				
+					$this.find(options.noScriptLink).each(function() {
+					
+						var $this = $(this);
+						
+						$this.attr('href', $this.data(noScriptData))
+						     .removeData(noScriptData);
+					     
+					});
+				
+				}
+				
+				// Remove event listener
+				$this.off(options.event);
 			
 			};
 			
