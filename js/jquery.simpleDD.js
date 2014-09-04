@@ -65,18 +65,20 @@
 		var options			= $.extend(defaults, options);
 		var objArray		= this;
 		var noScriptData	= 'simpledd-no-script-href';
-
-
+		var numElements		= this.length;
+		var elementCounter  = 1;
+		var timeoutvar		= 'simpleddtimeoutcode';
+		
+		
 		/**
 		 * Return each object
 		 */
 		return this.each(function() {
 
 			/**
-			 * Local plugin variables
+			 * Cache this
 			 */
-			var $this			= $(this); 
-			var timeoutvar		= 'simpleddtimeoutcode';
+			var $this = $(this); 
 			
 			
 			/**
@@ -260,8 +262,24 @@
 				});
 			
 			}
+			
+			
+			/**
+			 * Increment the element counter
+			 */
+			elementCounter ++;
+			
+			
+			/**
+			 * onInit
+			 */
+			if(elementCounter === numElements) {
+			
+				options.onInit.call(this);
+			
+			}
 		
-		});			
+		});
 	
 	};
 

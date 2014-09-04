@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>simpleDD Minimum Setup</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="js/jquery.simpleDD.js"></script>
 		<style type="text/css">
 		
@@ -90,7 +90,8 @@
 
 				var $simpleDD = $('li.simpledd').simpleDD({
 				
-					noScriptLink: 'a.no-script'
+					noScriptLink: 'a.no-script',
+					onInit: function() { console.log('simpleDD init'); }
 				
 				});
 
