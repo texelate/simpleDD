@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.5.0
+ * @version			1.5.1
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
  *
@@ -55,7 +55,7 @@
 			onInit:						function() {},
 			onOpen:						function() {},
 			onClose:					function() {},
-			onDestroy:					function() {}
+			onDestroyed:				function() {}
 		
 		};
 		
