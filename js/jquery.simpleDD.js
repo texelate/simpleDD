@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.4.0
+ * @version			1.5.0
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
  *
@@ -54,7 +54,8 @@
 			event:						'mouseenter',
 			onInit:						function() {},
 			onOpen:						function() {},
-			onClose:					function() {}
+			onClose:					function() {},
+			onDestroy:					function() {}
 		
 		};
 		
@@ -233,6 +234,9 @@
 				
 				// Remove event listener
 				$this.off(options.event);
+				
+				// Destroyed callback
+				options.onDestroyed.call(this);
 			
 			};
 			

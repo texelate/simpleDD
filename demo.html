@@ -93,7 +93,8 @@
 					noScriptLink: 'a.no-script',
 					onInit: function() { console.log('simpleDD init'); },
 					onOpen: function() { console.log('simpleDD opened'); $(this).children('div.simpledd-child').eq(0).hide().fadeIn(); },
-					onInit: function() { console.log('simpleDD closed'); }
+					onInit: function() { console.log('simpleDD closed'); },
+					onDestroyed: function() { console.log('simpleDD has been destroyed'); }
 				
 				});
 
