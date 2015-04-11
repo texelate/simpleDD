@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.5.2
+ * @version			1.5.3
  * @license			www.texelate.co.uk/mit-license/
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
@@ -34,8 +34,8 @@
 			noScriptLink:				null,
 			event:						'mouseenter',
 			onInit:						function() {},
-			onOpen:						function() {},
-			onClose:					function() {},
+			onOpened:					function() {},
+			onClosed:					function() {},
 			onDestroyed:				function() {}
 		
 		};
@@ -123,7 +123,7 @@
 				     .css('display', 'block');
 				     
 				// Open callback
-				options.onOpen.call(this);
+				options.onOpened.call(this);
 			
 			})
 			
@@ -159,7 +159,7 @@
 				});
 				
 				// Prevent the html click handler from firing if the menus are clicked
-				$(this).click(function(e) {
+				$this.click(function(e) {
 					
 				    e.stopPropagation();
 				    
@@ -236,7 +236,7 @@
 				     .css('display', 'none');
 				     
 				// Close callback
-				options.onClose.call(this);
+				options.onClosed.call(this);
 			
 			}
 			
