@@ -90,19 +90,13 @@
 
 				var $simpleDD = $('li.simpledd').simpleDD({
 				
-					noScriptLink: 'a.no-script',
-					onInit:       function() { console.log('simpleDD init'); },
-					onOpened:     function() { console.log('simpleDD opened'); $(this).children('div.simpledd-child').eq(0).hide().fadeIn(); },
-					onClosed:     function() { console.log('simpleDD closed'); },
-					onDestroyed:  function() { console.log('simpleDD has been destroyed'); }
-				
-				});
-
-				$('a#close').on('click', function(e) {
-				
-					e.preventDefault();
-				
-					$simpleDD.close();
+					noScriptLink: 		'a.no-script',
+					keepOtherMenusOpen: true, // You're probably best off setting this to false
+					timeout:            2000, // This is set quite high for the demo
+					onInit:				function() { console.log('simpleDD init'); },
+					onOpened:			function() { console.log('simpleDD opened'); $(this).children('div.simpledd-child').eq(0).hide().fadeIn(); },
+					onClosed:			function() { console.log('simpleDD closed'); },
+					onDestroyed:		function() { console.log('simpleDD destroyed'); }
 				
 				});
 
@@ -129,22 +123,23 @@
 	<body>
 		<ul>
 			<li><a href="demo.html">Menu 1</a></li>
-			<li class="simpledd">
+			<li class="simpledd" data-foo="bar-1">
 				<a class="no-script" href="demo.html">Menu 2</a>
 				<div class="simpledd-child">
 					<a href="#">Sub link 1</a>
 					<a href="#">Sub link 2</a>
 					<a href="#">Sub link 3</a>
-					<a href="#" id="close">x Close</a>
+					<a href="#" class="simpledd-close">x Close</a>
 				</div>
 			</li>
 			<li><a href="demo.html">Menu 3</a></li>
-			<li class="simpledd">
+			<li class="simpledd" data-foo="bar-2">
 				<a class="no-script" href="demo.html">Menu 4</a>
 				<div class="simpledd-child">
 					<a href="#">Sub link 1</a>
 					<a href="#">Sub link 2</a>
 					<a href="#">Sub link 3</a>
+					<a href="#" class="simpledd-close">x Close</a>
 					<a href="#" id="close-all-links">Close all drop downs</a>
 				</div>
 			</li>

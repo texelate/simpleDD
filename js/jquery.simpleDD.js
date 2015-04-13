@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.5.3
+ * @version			1.6.0
  * @license			www.texelate.co.uk/mit-license/
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
@@ -27,6 +27,7 @@
 		
 			timeout:					500,
 			dropdownElement:			'.simpledd-child',
+			closeElement: 				'.simpledd-close',
 			hoverClass:					'simpledd-over',
 			keepOtherMenusOpen:			false,
 			closeMenusOnOutsideClick:	true,
@@ -47,9 +48,9 @@
 		var options			= $.extend(defaults, options);
 		var objArray		= this;
 		var noScriptData	= 'simpledd-no-script-href';
+		var timeoutDataAttr	= 'simpledd-timeout';
 		var numElements		= this.length;
 		var elementCounter  = 1;
-		var timeoutvar		= 'simpleddtimeoutcode';
 		
 		
 		/**
@@ -60,7 +61,7 @@
 			/**
 			 * Cache this
 			 */
-			var $this = $(this); 
+			var $this = $(this);
 			
 			
 			/**
@@ -81,9 +82,26 @@
 					});    
 				
 				});
-
 			
 			}
+			
+			
+			/**
+			 * Internal close links
+			 */
+			$this.find(options.closeElement).each(function() {
+			
+				var $closeLink = $(this);
+				
+				$closeLink.on('click', function(e) {
+				
+					e.preventDefault();
+					
+					close($this);
+				
+				});
+			
+			});
 			
 			
 			/**
@@ -109,10 +127,10 @@
 				}
 
 				// If there is a timeout set, cancel it
-				if($this.data(timeoutvar)) {
-				
-					window.clearTimeout($this.data(timeoutvar));
-					$this.removeData(timeoutvar);
+				if($this.data(timeoutDataAttr) !== 'null') {
+
+					clearTimeout($this.data(timeoutDataAttr));
+					$this.data(timeoutDataAttr, 'null');
 				
 				}
 				
@@ -132,16 +150,19 @@
 			 * Mouse leave
 			 */
 			$this.on('mouseleave', function() {
-
-				// Set the timeout
-				var timeoutcode = window.setTimeout(function() {
+				
+				if($this.find(options.dropdownElement)
+				        .eq(0)
+				        .is(':visible') === true) {
+	
+					// Set the timeout
+					$this.data(timeoutDataAttr, setTimeout(function() {
+						
+						close($this);
 					
-					close($this);
+					}, options.timeout));
 				
-				}, options.timeout);
-				
-				// Store the timeout
-				$this.data(timeoutvar, timeoutcode);
+				}
 			
 			})
 			
@@ -166,16 +187,6 @@
 				});
 			
 			}
-			
-			
-			/**
-			 * Public function to close current drop down
-			 */
-			$.fn.close = function() {
-			
-				close($(this));
-			
-			};
 			
 			
 			/**
