@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.6.0
+ * @version			1.6.1
  * @license			www.texelate.co.uk/mit-license/
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
@@ -51,7 +51,23 @@
 		var timeoutDataAttr	= 'simpledd-timeout';
 		var numElements		= this.length;
 		var elementCounter  = 1;
+		var isTouch         = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 		
+		
+		/**
+		 * Change event types if touch device as iOS doesn't behave as expected with clicks on html
+		 */
+		if(isTouch === true) {
+		
+			var htmlEvent 	= 'touchstart';
+			options.event	= 'click';
+		
+		}
+		else {
+		
+			var htmlEvent = 'click';
+		
+		}
 		
 		/**
 		 * Return each object
@@ -143,7 +159,7 @@
 				// Open callback
 				options.onOpened.call(this);
 			
-			})
+			});
 			
 			
 			/**
@@ -164,23 +180,23 @@
 				
 				}
 			
-			})
+			});
 			
 			
 			/*
 			 * Close all dropdowns when you click outside the menus
-			 */
+			 */			
 			if(options.closeMenusOnOutsideClick === true) {
 			
 				// Add click handler to the entire web page
-				$('html').on('click', function() {
+				$('html, body').on(htmlEvent, function(e) {
 				
 					closeAllDropDowns();
 				
 				});
 				
 				// Prevent the html click handler from firing if the menus are clicked
-				$this.click(function(e) {
+				$this.on('click', function(e) {
 					
 				    e.stopPropagation();
 				    
