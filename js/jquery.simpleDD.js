@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.7.0
+ * @version			1.7.1
  * @license			www.texelate.co.uk/mit-license/
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
@@ -161,9 +161,16 @@
 		 * Return each object
 		 */
 		return this.each(function() {
-
+		
 			/**
 			 * Cache this
+			 * TO DO: When closing this seems to work with click and _this seems to work with mouseenter - why?
+			 */
+			var _this = this;
+
+
+			/**
+			 * Cache $(this)
 			 */
 			var $this = $(this);
 			
@@ -197,7 +204,16 @@
 			
 				$(this).on('click', function(e) {
 				
-					close(this);
+					if(options.event === 'click') {
+					
+						close(this);
+						
+					}
+					else {
+					
+						close(_this);
+					
+					}
 					
 					// Prevent default
 					e.preventDefault();
@@ -269,7 +285,7 @@
 						// Set the timeout
 						$this.data(timeoutDataAttr, setTimeout(function() {
 						
-							close(this);
+							close(_this);
 					
 						}, options.timeout));
 				
@@ -316,8 +332,6 @@
 						
 						// If there is a timeout set, cancel it
 						if($this.data(timeoutDataAttr) !== 'null') {
-						
-							console.log('timeout removed');
 						
 							clearTimeout($this.data(timeoutDataAttr));
 							$this.data(timeoutDataAttr, 'null');

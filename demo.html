@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>simpleDD Minimum Setup</title>
+		<title>simpleDD</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/jquery.simpleDD.js"></script>
 		<style type="text/css">
@@ -96,7 +96,7 @@
 					noScriptLink: 		'a.no-script',
 					timeout:            3000, // This is set quite high for the demo
 					onInit:				function() { console.log('simpleDD init'); },
-					onOpened:			function() { console.log('simpleDD opened ' + $(this).attr('id')); $(this).children('div.simpledd-child').eq(0).hide().fadeIn(); },
+					onOpened:			function() { console.log('simpleDD opened ' + $(this).attr('id')); },
 					onClosed:			function() { console.log('simpleDD closed ' + $(this).attr('id')); },
 					onDestroyed:		function() { console.log('simpleDD destroyed'); }
 				
