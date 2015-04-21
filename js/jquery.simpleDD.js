@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.7.1
+ * @version			1.7.2
  * @license			www.texelate.co.uk/mit-license/
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
@@ -274,7 +274,7 @@
 			/**
 			 * Mouse leave
 			 */
-			if(isTouch === false) {
+			if(isTouch === false && options.event != 'click') {
 			
 				$this.on('mouseleave', function() {
 				
