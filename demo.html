@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>simpleDD Minimum Setup</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/jquery.simpleDD.js"></script>
 		<style type="text/css">
 		
@@ -65,8 +65,11 @@
 				
 			}
 			
-			li > a:hover,
-			.simpledd-over { background-color: #F7F7F7; }
+			li > a:hover { background-color: #F7F7F7; }
+			
+			li > a:active { background-color: transparent; }
+			
+			.simpledd-over > a { color: #000000; }
 			
 			div.simpledd-child {
 				
@@ -91,23 +94,14 @@
 				var $simpleDD = $('li.simpledd').simpleDD({
 				
 					noScriptLink: 		'a.no-script',
-					keepOtherMenusOpen: true, // You're probably best off setting this to false
-					timeout:            2000, // This is set quite high for the demo
+					timeout:            3000, // This is set quite high for the demo
 					onInit:				function() { console.log('simpleDD init'); },
-					onOpened:			function() { console.log('simpleDD opened'); $(this).children('div.simpledd-child').eq(0).hide().fadeIn(); },
-					onClosed:			function() { console.log('simpleDD closed'); },
+					onOpened:			function() { console.log('simpleDD opened ' + $(this).attr('id')); $(this).children('div.simpledd-child').eq(0).hide().fadeIn(); },
+					onClosed:			function() { console.log('simpleDD closed ' + $(this).attr('id')); },
 					onDestroyed:		function() { console.log('simpleDD destroyed'); }
 				
 				});
 
-				$('a#close-all-links').on('click', function(e) {
-				
-					e.preventDefault();
-				
-					$simpleDD.closeAllDropDowns();
-				
-				});
-				
 				$('a#destroy').on('click', function(e) {
 				
 					e.preventDefault();
@@ -123,24 +117,23 @@
 	<body>
 		<ul>
 			<li><a href="demo.html">Menu 1</a></li>
-			<li class="simpledd" data-foo="bar-1">
+			<li class="simpledd" id="dd-1">
 				<a class="no-script" href="demo.html">Menu 2</a>
 				<div class="simpledd-child">
+					<a href="#" class="simpledd-close">x Close</a>
 					<a href="http://www.google.co.uk/">Sub link 1</a>
 					<a href="#">Sub link 2</a>
 					<a href="#">Sub link 3</a>
-					<a href="#" class="simpledd-close">x Close</a>
 				</div>
 			</li>
 			<li><a href="demo.html">Menu 3</a></li>
-			<li class="simpledd" data-foo="bar-2">
+			<li class="simpledd" id="dd-2">
 				<a class="no-script" href="demo.html">Menu 4</a>
 				<div class="simpledd-child">
 					<a href="#">Sub link 1</a>
 					<a href="#">Sub link 2</a>
 					<a href="#">Sub link 3</a>
 					<a href="#" class="simpledd-close">x Close</a>
-					<a href="#" id="close-all-links">Close all drop downs</a>
 				</div>
 			</li>
 			<li><a href="demo.html">Menu 5</a></li>
