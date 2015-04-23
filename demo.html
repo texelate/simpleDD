@@ -95,6 +95,7 @@
 				
 					noScriptLink: 		'a.no-script',
 					timeout:            3000, // This is set quite high for the demo to aid testing
+					//event:				'click', // Change it to 'click' so it acts like a select element
 					onInit:				function() { console.log('simpleDD init'); },
 					onOpened:			function() { console.log('simpleDD opened ' + $(this).attr('id')); },
 					onClosed:			function() { console.log('simpleDD closed ' + $(this).attr('id')); },

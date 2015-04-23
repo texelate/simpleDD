@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.7.2
+ * @version			1.7.3
  * @license			www.texelate.co.uk/mit-license/
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
@@ -151,6 +151,18 @@
 					
 				    e.stopPropagation();
 				    
+				    // Stop propagation on child too
+				    $(this).find(options.dropdownElement).eq(0)
+				           .each(function() {
+				    
+				    	$(this).on('click', function(e) {
+				    
+				    		e.stopPropagation();
+				    	
+				    	});
+				    
+				    });
+				    
 				});
 			
 			});
@@ -164,7 +176,6 @@
 		
 			/**
 			 * Cache this
-			 * TO DO: When closing this seems to work with click and _this seems to work with mouseenter - why?
 			 */
 			var _this = this;
 
@@ -204,16 +215,7 @@
 			
 				$(this).on('click', function(e) {
 				
-					if(options.event === 'click') {
-					
-						close(this);
-						
-					}
-					else {
-					
-						close(_this);
-					
-					}
+					close(_this);
 					
 					// Prevent default
 					e.preventDefault();
@@ -241,7 +243,7 @@
 				// Create toggle behaviour on click events
 				if(options.event == 'click' && options.noScriptLink !== null && $this.find(options.dropdownElement).eq(0).is(':visible') === true) {
 
-					close(this);
+					close(_this);
 				
 				}
 				else {
