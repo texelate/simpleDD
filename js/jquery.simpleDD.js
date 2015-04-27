@@ -113,11 +113,14 @@
 		 */
 		if(isiOS === true) {
 		
-			// Set links to use -webkit-tap-highlight-color for a better user experience
-			$('a').css('-webkit-tap-highlight-color', $body.css('-webkit-tap-highlight-color'));
+			// Store -webkit-tap-highlight-color as this gets set to rgba(0, 0, 0, 0) in the next part of the code
+			var tempCSS = $('a').css('-webkit-tap-highlight-color');
 			
 			$body.css('cursor', 'pointer')									// Make iOS honour the click event on body
 			     .css('-webkit-tap-highlight-color', 'rgba(0, 0, 0, 0)'); 	// Stops content flashing when body is clicked
+			     
+			// Reply apply cached CSS
+			$('a').css('-webkit-tap-highlight-color', tempCSS);
 			     
 			
 		}
