@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.7.3
+ * @version			1.7.4
  * @license			www.texelate.co.uk/mit-license/
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
@@ -52,7 +52,7 @@
 		var elementCounter  = 1;
 		var isTouch         = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 		var isiOS 			= (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
-		var $htmlBody		= $('html, body');
+		var $body			= $('body');
 		var destroyed		= false;
 		
 		
@@ -113,9 +113,13 @@
 		 */
 		if(isiOS === true) {
 		
-			$htmlBody.css('cursor', 'pointer')
-			         .css('-webkit-tap-highlight-color', 'rgba(0, 0, 0, 0)'); // Stops content flashing when body is clicked
-		
+			// Set links to use -webkit-tap-highlight-color for a better user experience
+			$('a').css('-webkit-tap-highlight-color', $body.css('-webkit-tap-highlight-color'));
+			
+			$body.css('cursor', 'pointer')									// Make iOS honour the click event on body
+			     .css('-webkit-tap-highlight-color', 'rgba(0, 0, 0, 0)'); 	// Stops content flashing when body is clicked
+			     
+			
 		}
 		
 		
@@ -135,7 +139,7 @@
 		if(options.closeMenusOnOutsideClick === true) {
 		
 			// Add click handler to the entire web page
-			$htmlBody.on('click', function(e) {
+			$body.on('click', function(e) {
 			
 				closeAllDropDowns();
 			
@@ -312,7 +316,7 @@
 				options.onInit.call(this);
 				
 				// For some reason on iOS the first click doesn't work
-				$htmlBody.trigger('click');
+				$body.trigger('click');
 			
 			}
 			
@@ -359,7 +363,7 @@
 						$this.off(options.event);
 						
 						// Remove html, body click
-						$htmlBody.off('click');
+						$body.off('click');
 						
 						// Destroyed callback
 						options.onDestroyed.call(this);
