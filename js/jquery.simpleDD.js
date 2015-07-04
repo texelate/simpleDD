@@ -5,7 +5,7 @@
  * A simple jQuery drop down plugin
  *
  * @author			Tim Bennett
- * @version			1.7.4
+ * @version			1.8.0
  * @license			www.texelate.co.uk/mit-license/
  *
  * Download the latest version at www.texelate.co.uk/lab/project/simple-dd/
@@ -322,62 +322,6 @@
 				$body.trigger('click');
 			
 			}
-			
-			
-			/**
-			 * Public function to destroy
-			 */
-			$.fn.destroy = function() {
-			
-				if(destroyed === false) {
-			
-					// Close all drop downs
-					closeAllDropDowns();
-					
-					objArray.each(function() {
-					
-						// Cache this
-						var $this = $(this);
-						
-						// If there is a timeout set, cancel it
-						if($this.data(timeoutDataAttr) !== 'null') {
-						
-							clearTimeout($this.data(timeoutDataAttr));
-							$this.data(timeoutDataAttr, 'null');
-							
-						}
-					
-						// Re-add no script link
-						if(options.noScriptLink !== null) {
-						
-							$this.find(options.noScriptLink)
-							     .each(function() {
-							
-								var $this = $(this);
-								
-								$this.attr('href', $this.data(noScriptData))
-								     .removeData(noScriptData);
-							     
-							});
-						
-						}
-						
-						// Remove event listener
-						$this.off(options.event);
-						
-						// Remove html, body click
-						$body.off('click');
-						
-						// Destroyed callback
-						options.onDestroyed.call(this);
-					
-					});
-					
-					destroyed = true;
-				
-				}
-			
-			};
 		
 		});
 	
