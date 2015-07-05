@@ -35,8 +35,7 @@
 			event:						'mouseenter',
 			onInit:						function() {},
 			onOpened:					function() {},
-			onClosed:					function() {},
-			onDestroyed:				function() {}
+			onClosed:					function() {}
 		
 		};
 		
@@ -53,7 +52,6 @@
 		var isTouch         = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 		var isiOS 			= (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
 		var $body			= $('body');
-		var destroyed		= false;
 		
 		
 		/**
