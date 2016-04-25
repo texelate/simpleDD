@@ -1,0 +1,29 @@
+{
+	"name": "jquery-simpledd",
+	"description": "jQuery simple drop down",
+	"dependencies": {
+		"jquery": ">=1.8.0"
+	},
+	"keywords": [
+		"dropdown",
+		"jquery-plugin"
+	],
+	"authors": [
+		{
+			"name": "Tim Bennett",
+			"url": "http://www.texelate.co.uk",
+			"email": "git@texelate.co.uk"
+		}
+	],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.texelate.co.uk/mit-license/"
+		}
+	],
+	"homepage": "https://github.com/texelate/simpleDD,
+	"main": "jquery.simpleDD.min.js",
+	"ignore": [
+		"demo.html"
+	]
+}
