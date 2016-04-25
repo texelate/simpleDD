@@ -21,7 +21,7 @@
 			"url": "http://www.texelate.co.uk/mit-license/"
 		}
 	],
-	"homepage": "https://github.com/texelate/simpleDD,
+	"homepage": "https://github.com/texelate/simpleDD",
 	"main": "jquery.simpleDD.min.js",
 	"ignore": [
 		"demo.html"
